@@ -1,8 +1,13 @@
 package com.example.weatherapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.weatherapplication.network.ApiInterface;
@@ -27,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView humidityTv;
     private TextView windSpeedTv;
     private TextView visibilityTv;
+    private RecyclerView weeklyStats;
+    private WeeklyAdapter weeklyAdapter;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +42,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         linkView();
-
+        setProgressTo(true);
+        setRecyclerView();
         fetchDataFromApi();
+}
 
+    private void setProgressTo(boolean visible) {
+        if(visible)
+            progressBar.setVisibility(View.VISIBLE);
+        else
+            progressBar.setVisibility(View.GONE);
+    }
 
+    private void setRecyclerView() {
+        weeklyStats.setLayoutManager(new LinearLayoutManager(this));
+        weeklyAdapter = new WeeklyAdapter();
+        weeklyStats.setAdapter(weeklyAdapter);
     }
 
     private void linkView() {
@@ -48,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         humidityTv = (TextView) findViewById(R.id.humidity_value);
         windSpeedTv = (TextView) findViewById(R.id.wind_value);
         visibilityTv = (TextView) findViewById(R.id.visibility_value);
+        weeklyStats = (RecyclerView) findViewById(R.id.weekStatsRecyclerView);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
     }
 
     private void fetchDataFromApi() {
@@ -56,8 +78,10 @@ public class MainActivity extends AppCompatActivity {
         client.getData().enqueue(new Callback<Weather>() {
             @Override
             public void onResponse(Call<Weather> call, Response<Weather> response) {
+                setProgressTo(false);
                 Weather weather = response.body();
                 setValueForCurrentView(weather.getCurrently());
+                addDataToRecycleView(weather);
                 Log.d(TAG, weather.toString());
             }
 
@@ -68,14 +92,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void addDataToRecycleView(Weather weather) {
+        weeklyAdapter.setDataList(weather.getDaily().getData());
+    }
+
     private void setValueForCurrentView(Currently currently) {
-        tempTv.setText(currently.getTemperature().toString() + " mb");
-        summTv.setText(currently.getSummary().toString() + " mb");
+        tempTv.setText(currently.getTemperature().toString() + " F");
+        summTv.setText(currently.getSummary());
         pressureTv.setText(currently.getPressure().toString() + " mb");
         humidityTv.setText(currently.getHumidity().toString() + " %");
         windSpeedTv.setText(currently.getWindSpeed().toString() + " mph");
         visibilityTv.setText(currently.getVisibility().toString() + " km");
     }
-
 
 }
