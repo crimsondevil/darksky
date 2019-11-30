@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.example.weatherapplication.network.ApiInterface;
 import com.example.weatherapplication.network.Model.User;
+import com.example.weatherapplication.network.Model.Weather;
 import com.example.weatherapplication.network.NetworkClient;
 
 import retrofit2.Call;
@@ -26,15 +27,15 @@ public class MainActivity extends AppCompatActivity {
 
         client = NetworkClient.getRetrofit().create(ApiInterface.class);
 
-        client.getData().enqueue(new Callback<User>() {
+        client.getData().enqueue(new Callback<Weather>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                User user = response.body();
-                Log.d(TAG, user.toString());
+            public void onResponse(Call<Weather> call, Response<Weather> response) {
+                Weather weather = response.body();
+                Log.d(TAG, weather.toString());
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<Weather> call, Throwable t) {
                 t.printStackTrace();
             }
         });
