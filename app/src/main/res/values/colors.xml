@@ -7,4 +7,7 @@
     <color name="colorLight">#FFFFFF</color>
     <color name="colorLightGrey">#979393</color
     <color name="colorDarkGrey">#302F2F</color>
+    <color name="colorDark">#292828</color>
+    <color name="colorFont">#F3F1F1</color>
+    <color name="colorFontLight">#919090</color>
 </resources>

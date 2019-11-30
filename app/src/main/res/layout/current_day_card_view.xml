@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorDark"
+    app:layout_constraintEnd_toStartOf="@+id/humidity_image"
+    app:layout_constraintHorizontal_bias="0.5"
+    android:paddingBottom="16dp">
+
+    <ImageView
+        android:id="@+id/humidity_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/water_percent"
+        app:layout_constraintEnd_toStartOf="@+id/wind_image"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/wind_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/visibility_image"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/humidity_image"
+        app:layout_constraintTop_toTopOf="@+id/humidity_image"
+        app:srcCompat="@drawable/weather_windy" />
+
+    <ImageView
+        android:id="@+id/visibility_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/pressure_image"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/wind_image"
+        app:layout_constraintTop_toTopOf="@+id/pressure_image"
+        app:srcCompat="@drawable/eye_outline" />
+
+    <ImageView
+        android:id="@+id/pressure_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/visibility_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gauge" />
+
+    <TextView
+        android:id="@+id/humidity_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorFont"
+        app:layout_constraintEnd_toEndOf="@+id/humidity_image"
+        app:layout_constraintStart_toStartOf="@+id/humidity_image"
+        app:layout_constraintTop_toBottomOf="@+id/humidity_image"
+        tools:text="79%"/>
+
+    <TextView
+        android:id="@+id/wind_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorFont"
+        app:layout_constraintEnd_toEndOf="@+id/wind_image"
+        app:layout_constraintStart_toStartOf="@+id/wind_image"
+        app:layout_constraintTop_toBottomOf="@+id/wind_image"
+        tools:text="0.17 mph"/>
+
+    <TextView
+        android:id="@+id/visibility_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorFont"
+        app:layout_constraintEnd_toEndOf="@+id/visibility_image"
+        app:layout_constraintStart_toStartOf="@+id/visibility_image"
+        app:layout_constraintTop_toBottomOf="@+id/visibility_image"
+        tools:text="9.33 km"/>
+
+    <TextView
+        android:id="@+id/pressure_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorFont"
+        app:layout_constraintEnd_toEndOf="@+id/pressure_image"
+        app:layout_constraintStart_toStartOf="@+id/pressure_image"
+        app:layout_constraintTop_toBottomOf="@+id/pressure_image"
+        tools:text="1015.80 mb"/>
+
+    <TextView
+        android:id="@+id/humidity_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/humidity_label"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorFontLight"
+        app:layout_constraintEnd_toEndOf="@+id/humidity_image"
+        app:layout_constraintStart_toStartOf="@+id/humidity_image"
+        app:layout_constraintTop_toBottomOf="@+id/humidity_value" />
+
+    <TextView
+        android:id="@+id/wind_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/wind_label"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorFontLight"
+        app:layout_constraintEnd_toEndOf="@+id/wind_image"
+        app:layout_constraintStart_toStartOf="@+id/wind_image"
+        app:layout_constraintTop_toBottomOf="@+id/wind_value" />
+
+    <TextView
+        android:id="@+id/visibility_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/visibility_label"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorFontLight"
+        app:layout_constraintEnd_toEndOf="@+id/visibility_image"
+        app:layout_constraintStart_toStartOf="@+id/visibility_image"
+        app:layout_constraintTop_toBottomOf="@+id/visibility_value" />
+
+    <TextView
+        android:id="@+id/pressure_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/pressure_label"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorFontLight"
+        app:layout_constraintEnd_toEndOf="@+id/pressure_image"
+        app:layout_constraintStart_toStartOf="@+id/pressure_image"
+        app:layout_constraintTop_toBottomOf="@+id/pressure_value" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
