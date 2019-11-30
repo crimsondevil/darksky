@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkClient {
 
-    private static String BASE_URL = "https://jsonplaceholder.typicode.com/";
+    private static String BASE_URL = "https://forecast-030205-back.appspot.com/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getRetrofit() {

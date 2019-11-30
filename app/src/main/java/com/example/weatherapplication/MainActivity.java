@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         client = NetworkClient.getRetrofit().create(ApiInterface.class);
 
-        client.getUsers(1).enqueue(new Callback<User>() {
+        client.getData().enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 User user = response.body();
