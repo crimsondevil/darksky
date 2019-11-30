@@ -1,74 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_view"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="10dp"
-    android:layout_marginTop="150dp"
-    android:background="@color/colorDark"
-    card_view:cardElevation="20dp"
-    card_view:contentPadding="20dp"
-    card_view:cardBackgroundColor="@color/colorDarkGrey"
-    card_view:cardCornerRadius="10dp">
+    android:layout_height="170dp"
+    android:background="@color/colorDarkGrey">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="152dp"
-        android:layout_gravity="center">
+    <ImageView
+        android:id="@+id/curr_icon"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintHorizontal_bias="0.192"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent"
+        card_view:layout_constraintVertical_bias="0.266"
+        card_view:srcCompat="@drawable/weather_partly_snowy_rainy" /> <!--src for icon -->
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="110dp"
-            android:layout_height="120dp"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toStartOf="@+id/textView3"
-            card_view:layout_constraintHorizontal_bias="0.363"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.062"
-            card_view:srcCompat="@drawable/weather_partly_snowy_rainy" />
+    <TextView
+        android:id="@+id/curr_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorLight"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintHorizontal_bias="0.46"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent"
+        tools:text="59 F" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="82dp"
-            android:layout_height="40dp"
-            android:text="59.59 F"
-            android:textColor="@color/colorLight"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            card_view:layout_constraintBottom_toTopOf="@+id/textView3"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.192"
-            card_view:layout_constraintStart_toEndOf="@+id/imageView3"
-            card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.794" />
+    <TextView
+        android:id="@+id/curr_summ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorLightGrey"
+        card_view:layout_constraintBottom_toTopOf="@+id/curr_city"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintHorizontal_bias="0.455"
+        card_view:layout_constraintStart_toStartOf="parent"
+        tools:text="Clear" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="164dp"
-            android:layout_height="42dp"
-            android:text="Clear"
-            android:textColor="@color/colorLightGrey"
-            card_view:layout_constraintBottom_toTopOf="@+id/textView4"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/imageView3"
-            card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.952" />
+    <TextView
+        android:id="@+id/curr_city"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="12dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorLight"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toBottomOf="@+id/curr_icon"
+        tools:text="Los Angeles, CA, USA" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="322dp"
-            android:layout_height="22dp"
-            android:text="Los Angeles, CA, USA"
-            android:textAlignment="center"
-            android:textColor="@color/colorLight"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

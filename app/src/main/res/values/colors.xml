@@ -5,9 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorDark">#0C0C0C</color>
     <color name="colorLight">#FFFFFF</color>
-    <color name="colorLightGrey">#979393</color
+    <color name="colorLightGrey">#979393</color>
     <color name="colorDarkGrey">#302F2F</color>
-    <color name="colorDark">#292828</color>
     <color name="colorFont">#F3F1F1</color>
     <color name="colorFontLight">#919090</color>
 </resources>

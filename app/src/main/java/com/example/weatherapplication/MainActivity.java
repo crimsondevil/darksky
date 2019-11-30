@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
     private String TAG = "MainActivity";
 
+    private TextView tempTv;
+    private TextView summTv;
+    private TextView cityTv;
     private TextView pressureTv;
     private TextView humidityTv;
     private TextView windSpeedTv;
@@ -38,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void linkView() {
+        tempTv = (TextView) findViewById(R.id.curr_temp);
+        summTv = (TextView) findViewById(R.id.curr_summ);
+        cityTv = (TextView) findViewById(R.id.curr_city);
         pressureTv = (TextView) findViewById(R.id.pressure_value);
         humidityTv = (TextView) findViewById(R.id.humidity_value);
         windSpeedTv = (TextView) findViewById(R.id.wind_value);
@@ -63,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setValueForCurrentView(Currently currently) {
+        tempTv.setText(currently.getTemperature().toString() + " mb");
+        summTv.setText(currently.getSummary().toString() + " mb");
         pressureTv.setText(currently.getPressure().toString() + " mb");
         humidityTv.setText(currently.getHumidity().toString() + " %");
         windSpeedTv.setText(currently.getWindSpeed().toString() + " mph");
