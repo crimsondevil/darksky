@@ -1,18 +1,22 @@
 package com.example.weatherapplication;
 
-import android.app.Activity;
+import android.app.Activity; //check this
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 public class testSplashActivity extends Activity {
-    Handler handler;
+//    Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_splash_screen);
 
-        handler=new Handler();
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        finish();
+
+        /*handler=new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -20,7 +24,7 @@ public class testSplashActivity extends Activity {
                 startActivity(intent);
                 finish();
             }
-        },3000);
+        },3000);*/
 
     }
 }

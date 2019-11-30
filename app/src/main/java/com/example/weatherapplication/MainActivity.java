@@ -1,7 +1,9 @@
 package com.example.weatherapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
