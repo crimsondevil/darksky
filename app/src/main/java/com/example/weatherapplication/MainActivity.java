@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.weatherapplication.network.ApiInterface;
+import com.example.weatherapplication.network.Model.User;
+import com.example.weatherapplication.network.NetworkClient;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
