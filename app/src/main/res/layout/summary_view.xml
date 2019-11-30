@@ -1,44 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:id="@+id/card_view"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    card_view:cardElevation="20dp"
-    android:layout_margin="10dp"
-    card_view:contentPadding="20dp"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginTop="150dp"
+    android:background="@color/colorDark"
+    card_view:cardElevation="20dp"
+    card_view:contentPadding="20dp"
+    card_view:cardBackgroundColor="@color/colorDarkGrey"
+    card_view:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="152dp"
         android:layout_gravity="center">
 
         <ImageView
-            android:id="@+id/image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorDark"
-            android:src="@drawable/poweredby"
+            android:id="@+id/imageView3"
+            android:layout_width="110dp"
+            android:layout_height="120dp"
             card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toStartOf="@+id/textView3"
+            card_view:layout_constraintHorizontal_bias="0.363"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
-
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.062"
+            card_view:srcCompat="@drawable/weather_partly_snowy_rainy" />
 
         <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/image"
-            android:layout_centerHorizontal="true"
-            android:linksClickable="true"
-            android:text="https://abhiandroid.com"
-            android:textColor="#000"
-            android:textSize="20sp"
+            android:id="@+id/textView2"
+            android:layout_width="82dp"
+            android:layout_height="40dp"
+            android:text="59.59 F"
+            android:textColor="@color/colorLight"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            card_view:layout_constraintBottom_toTopOf="@+id/textView3"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.192"
+            card_view:layout_constraintStart_toEndOf="@+id/imageView3"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.794" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="164dp"
+            android:layout_height="42dp"
+            android:text="Clear"
+            android:textColor="@color/colorLightGrey"
+            card_view:layout_constraintBottom_toTopOf="@+id/textView4"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toEndOf="@+id/imageView3"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.952" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="322dp"
+            android:layout_height="22dp"
+            android:text="Los Angeles, CA, USA"
+            android:textAlignment="center"
+            android:textColor="@color/colorLight"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/image" />
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
