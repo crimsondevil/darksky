@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Weather Application</string>
+    <string name="humidity_label">Humidity</string>
+    <string name="wind_label">Wind Speed</string>
+    <string name="visibility_label">Visibility</string>
+    <string name="pressure_label">Pressure</string>
 </resources>
