@@ -6,17 +6,18 @@ import android.os.Bundle;
 import android.os.Handler;
 
 public class testSplashActivity extends Activity {
-//    Handler handler;
+    Handler handler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_splash_screen);
 
-        Intent i = new Intent(this, MainActivity.class);
+        /*Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
-        finish();
+        finish();*/
 
-        /*handler=new Handler();
+        handler=new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -24,7 +25,7 @@ public class testSplashActivity extends Activity {
                 startActivity(intent);
                 finish();
             }
-        },3000);*/
+        },1000);
 
     }
 }
