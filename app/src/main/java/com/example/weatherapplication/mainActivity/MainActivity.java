@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         client = NetworkClient.getRetrofit().create(ApiInterface.class);
         linkView();
+        detailButton.setVisibility(View.VISIBLE);
         detailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -210,7 +211,6 @@ public class MainActivity extends AppCompatActivity {
                 MatrixCursor row = (MatrixCursor) searchView.getSuggestionsAdapter().getCursor();
                 row.moveToPosition(position);
                 searchView.setQuery(row.getString(1), true);
-//                searchView.setQuery(row.getString(position), true);
                 return true;
             }
         });

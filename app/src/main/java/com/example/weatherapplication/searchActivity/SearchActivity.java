@@ -2,6 +2,7 @@ package com.example.weatherapplication.searchActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -37,6 +38,7 @@ public class SearchActivity extends AppCompatActivity {
     private RecyclerView weeklyStats;
     private WeeklyAdapter weeklyAdapter;
     private ProgressBar progressBar;
+    private Button detailButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class SearchActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         client = NetworkClient.getRetrofit().create(ApiInterface.class);
         linkView();
+        detailButton.setVisibility(View.GONE);
         city = getIntent().getExtras().getString("Query");
         setTitle(city);
 
@@ -73,6 +76,7 @@ public class SearchActivity extends AppCompatActivity {
         visibilityTv = findViewById(R.id.visibility_value);
         weeklyStats = findViewById(R.id.weekStatsRecyclerView);
         progressBar = findViewById(R.id.progressBar);
+        detailButton = findViewById(R.id.summaryDetail);
     }
 
     private void fetchWeatherDetails() {
