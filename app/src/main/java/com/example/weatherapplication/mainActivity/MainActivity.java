@@ -207,8 +207,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onSuggestionClick(int position) {
-                MatrixCursor row = (MatrixCursor) searchView.getSuggestionsAdapter().getItem(position);
-                searchView.setQuery(row.getString(position), true);
+                MatrixCursor row = (MatrixCursor) searchView.getSuggestionsAdapter().getCursor();
+                row.moveToPosition(position);
+                searchView.setQuery(row.getString(1), true);
+//                searchView.setQuery(row.getString(position), true);
                 return true;
             }
         });
