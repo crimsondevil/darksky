@@ -8,4 +8,7 @@
     <color name="colorDarkGrey">#302F2F</color>
     <color name="colorFont">#F3F1F1</color>
     <color name="colorFontLight">#919090</color>
+    <color name="maxTemp">#FFB300</color>
+    <color name="minTemp">#5E35B1</color>
+
 </resources>

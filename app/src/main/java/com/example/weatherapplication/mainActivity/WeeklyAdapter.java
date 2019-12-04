@@ -1,4 +1,4 @@
-package com.example.weatherapplication;
+package com.example.weatherapplication.mainActivity;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.weatherapplication.R;
 import com.example.weatherapplication.network.Model.Datum;
 
 import java.text.SimpleDateFormat;
@@ -53,15 +54,15 @@ public class WeeklyAdapter extends RecyclerView.Adapter<WeeklyAdapter.CustomView
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
-            date = (TextView) itemView.findViewById(R.id.date_value);
-            icon = (ImageView) itemView.findViewById(R.id.weather_icon);
-            low_temp = (TextView) itemView.findViewById(R.id.low_temp_value);
-            high_temp = (TextView) itemView.findViewById(R.id.high_temp_value);
+            date = itemView.findViewById(R.id.date_value);
+            icon = itemView.findViewById(R.id.weather_icon);
+            low_temp = itemView.findViewById(R.id.low_temp_value);
+            high_temp = itemView.findViewById(R.id.high_temp_value);
         }
 
 
         public void bindView(Datum datum) {
-            calendar.setTimeInMillis(datum.getTime());
+            calendar.setTimeInMillis(datum.getTime() * 1000L);
             SimpleDateFormat format1 = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
             date.setText(format1.format(calendar.getTime()));
             switch (datum.getIcon()){

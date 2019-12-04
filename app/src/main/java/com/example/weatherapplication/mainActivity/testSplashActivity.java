@@ -1,9 +1,11 @@
-package com.example.weatherapplication;
+package com.example.weatherapplication.mainActivity;
 
-import android.app.Activity; //check this
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.weatherapplication.R;
 
 public class testSplashActivity extends Activity {
     Handler handler;

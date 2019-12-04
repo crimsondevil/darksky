@@ -18,7 +18,7 @@ public class Weather {
     private Daily daily;
     @SerializedName("offset")
     @Expose
-    private Integer offset;
+    private Float offset;
 
     public String getTimezone() {
         return timezone;
@@ -44,11 +44,11 @@ public class Weather {
         this.daily = daily;
     }
 
-    public Integer getOffset() {
+    public Float getOffset() {
         return offset;
     }
 
-    public void setOffset(Integer offset) {
+    public void setOffset(Float offset) {
         this.offset = offset;
     }
 

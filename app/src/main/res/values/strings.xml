@@ -4,4 +4,6 @@
     <string name="wind_label">Wind Speed</string>
     <string name="visibility_label">Visibility</string>
     <string name="pressure_label">Pressure</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="search_hint">Search city</string>
 </resources>

@@ -68,7 +68,7 @@
             android:text="Los Angeles, CA, USA" />
 
         <Button
-            android:id="@+id/imageView4"
+            android:id="@+id/summaryDetail"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="5dp"
