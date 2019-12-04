@@ -1,5 +1,6 @@
 package com.example.weatherapplication.searchActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,9 +13,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.weatherapplication.R;
+import com.example.weatherapplication.detailActivity.DetailActivity;
 import com.example.weatherapplication.mainActivity.WeeklyAdapter;
 import com.example.weatherapplication.network.ApiInterface;
 import com.example.weatherapplication.network.Model.Currently;
+import com.example.weatherapplication.network.Model.Daily;
 import com.example.weatherapplication.network.Model.Weather;
 import com.example.weatherapplication.network.NetworkClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -40,6 +43,9 @@ public class SearchActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private Button detailButton;
 
+    private Currently currentDetails;
+    private Daily dailyDataSet;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +54,18 @@ public class SearchActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         client = NetworkClient.getRetrofit().create(ApiInterface.class);
         linkView();
-        detailButton.setVisibility(View.GONE);
+        detailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SearchActivity.this, DetailActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putSerializable("Currently", currentDetails);
+                mBundle.putSerializable("Daily", dailyDataSet);
+                mBundle.putString("City", city);
+                i.putExtras(mBundle);
+                startActivity(i);
+            }
+        });
         city = getIntent().getExtras().getString("Query");
         setTitle(city);
 
@@ -85,6 +102,8 @@ public class SearchActivity extends AppCompatActivity {
             public void onResponse(Call<Weather> call, Response<Weather> response) {
                 setProgressTo(false);
                 Weather weather = response.body();
+                currentDetails = weather.getCurrently();
+                dailyDataSet = weather.getDaily();
                 setValueForCurrentView(weather.getCurrently());
                 addDataToRecycleView(weather);
             }
