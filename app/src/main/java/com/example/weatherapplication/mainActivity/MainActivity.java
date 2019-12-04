@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private WeeklyAdapter weeklyAdapter;
     private ProgressBar progressBar;
     private Button detailButton;
+    private ImageView weatherIcon;
 
     private Currently currentDetails;
     private Daily dailyDataSet;
@@ -118,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         weeklyStats = findViewById(R.id.weekStatsRecyclerView);
         progressBar = findViewById(R.id.progressBar);
         detailButton = findViewById(R.id.summaryDetail);
+        weatherIcon = findViewById(R.id.curr_icon);
     }
 
     private void fetchDataFromApi(double latitude, double longitude, String city) {
@@ -153,6 +156,41 @@ public class MainActivity extends AppCompatActivity {
         windSpeedTv.setText(currently.getWindSpeed().toString() + " mph");
         visibilityTv.setText(currently.getVisibility().toString() + " km");
         cityTv.setText(city);
+        setIconFor(currently.getIcon());
+    }
+
+    private void setIconFor(String icon) {
+        switch (icon) {
+            case "clear-night":
+                weatherIcon.setImageResource(R.drawable.weather_night);
+                break;
+            case "rain":
+                weatherIcon.setImageResource(R.drawable.weather_rainy);
+                break;
+            case "sleet":
+                weatherIcon.setImageResource(R.drawable.weather_snowy_rainy);
+                break;
+            case "snow":
+                weatherIcon.setImageResource(R.drawable.weather_snowy);
+                break;
+            case "wind":
+                weatherIcon.setImageResource(R.drawable.weather_windy_variant);
+                break;
+            case "fog":
+                weatherIcon.setImageResource(R.drawable.weather_fog);
+                break;
+            case "cloudy":
+                weatherIcon.setImageResource(R.drawable.weather_cloudy);
+                break;
+            case "partly-cloudy-night":
+                weatherIcon.setImageResource(R.drawable.weather_night_partly_cloudy);
+                break;
+            case "partly-cloudy-day":
+                weatherIcon.setImageResource(R.drawable.weather_partly_cloudy);
+                break;
+            default:
+                weatherIcon.setImageResource(R.drawable.weather_sunny);
+        }
     }
 
     @Override
